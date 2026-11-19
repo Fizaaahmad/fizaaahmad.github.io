@@ -194,6 +194,36 @@ h3 { line-height: 1.24; letter-spacing: -.035em; }
   .hero-visual { z-index: 1; }
 }
 @media (max-width: 760px) {
+  .hero-stage { grid-template-areas: "mobile-hero"; }
+  .hero-copy {
+    grid-area: mobile-hero;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: .65rem;
+  }
+  .hero h1 { margin-bottom: .75rem; }
+  .hero-visual {
+    grid-area: mobile-hero;
+    align-self: end;
+    width: min(68vw, 410px);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-details { position: relative; z-index: 2; width: max-content; }
+  .hero-hook { font-size: clamp(.875rem, 3.6vw, 1.125rem); }
+  .hero-hook span { display: block; }
+  .hero-actions { margin-top: .65rem; }
+  .hero-copy .button {
+    position: relative;
+    min-height: 36px;
+    padding: .3rem .7rem;
+    font-size: .75rem;
+  }
+  .hero-copy .button::after { content: ''; position: absolute; inset: -4px 0; }
+}
+@media (max-width: 760px) {
   .navigation-bar .nav { min-height: 96px; gap: 4px 8px; }
   .navigation-bar nav { border: 0; padding-top: 0; }
   .appearance-controls { gap: 3px; }
