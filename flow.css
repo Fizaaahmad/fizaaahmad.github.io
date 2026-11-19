@@ -232,6 +232,9 @@ h3 { line-height: 1.24; letter-spacing: -.035em; }
 
 /* About */
 .hero + .about-section > .about { padding-block-start: clamp(1.25rem, 2.5vw, 2.5rem); }
+@media (max-width: 760px) {
+  .hero + .about-section > .about { padding-block-start: 2.5rem; }
+}
 .about-section { border: 0; background: radial-gradient(ellipse at 80% 42%,var(--cool-wash),transparent 61%); }
 .about { grid-template-columns: 1fr; align-items: center; gap: clamp(1.8rem, 5vw, 4.7rem); }
 .about-disciplines { grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(.6rem, 2vw, 1.4rem); }
