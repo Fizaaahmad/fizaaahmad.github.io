@@ -53,8 +53,8 @@
   --line: #d7c3ad;
   --text: #33251e;
   --muted: #665044;
-  --accent: #774b34;
-  --accent-strong: #5b3625;
+  --accent: #2B0808;
+  --accent-strong: #1F0000;
   --accent-ink: #fff8ee;
   --sage: #eadcc7;
   --sage-deep: #e2cdb1;
@@ -425,19 +425,20 @@ footer { border-top: 1px solid var(--line); border-bottom: none; }
   .capability-actions .button:hover
 ) { background: color-mix(in srgb, var(--heading) 80%, white); }
 
-.custom-color {
-  appearance: none;
-  width: 28px;
-  height: 36px;
-  padding: 8px 4px;
-  border: 0;
-  border-radius: 50%;
-  background: conic-gradient(#ef7898, #f6b66e, #9ec583, #72bdda, #a391df, #ef7898) center / 24px 24px no-repeat;
-  cursor: pointer;
+.custom-picker { position: relative; }
+.custom-picker summary { display: grid; place-items: center; width: 28px; height: 36px; cursor: pointer; list-style: none; }
+.custom-picker summary::-webkit-details-marker { display: none; }
+.custom-picker summary::before { content: ''; width: 17px; height: 17px; border-radius: 50%; background: var(--picker-color, #2b0808); }
+.custom-picker-panel { position: absolute; inset-inline-end: 0; top: 100%; z-index: 3; width: 184px; border-radius: 10px; padding: 10px; display: grid; gap: 8px; background: var(--panel); box-shadow: 0 6px 22px var(--shadow); }
+.custom-picker-panel label { display: flex; align-items: center; gap: 8px; font-size: .75rem; }
+.custom-picker-panel input { min-width: 0; flex: 1; }
+.custom-color { color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 5px; padding: 5px; font: inherit; }
+.color-plane { height: 104px; position: relative; border-radius: 5px; cursor: crosshair; touch-action: none; background: linear-gradient(transparent, #000), linear-gradient(to right, #fff, hsl(var(--picker-hue, 0) 100% 50%)); }
+.color-plane span { position: absolute; top: var(--picker-y, 88%); left: var(--picker-x, 100%); width: 11px; height: 11px; border: 2px solid white; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 2px black; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .project.filter-enter { animation: project-filter-enter .32s ease both; }
+  @keyframes project-filter-enter { from { opacity: .35; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
 }
-.custom-color::-webkit-color-swatch-wrapper { padding: 0; }
-.custom-color::-webkit-color-swatch { border: 2px solid var(--panel); border-radius: 50%; }
-.custom-color::-moz-color-swatch { border: 2px solid var(--panel); border-radius: 50%; }
 :root[data-custom-color] {
   --bg: color-mix(in srgb, var(--visitor-color) 8%, #fffaf4);
   --heading: color-mix(in srgb, var(--visitor-color) 52%, #1f0000);

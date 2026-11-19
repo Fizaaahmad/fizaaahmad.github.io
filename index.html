@@ -7,9 +7,9 @@
   <meta name="theme-color" content="#f7f3e9">
   <title>Fiza Ahmad | Full-Stack Engineer &amp; Digital Marketer</title>
   <link rel="icon" href="fa.svg" type="image/svg+xml">
-  <script src="theme.js?v=41"></script>
-  <link rel="stylesheet" href="styles.css?v=41">
-  <script src="portfolio.js" defer></script>
+  <script src="theme.js?v=42"></script>
+  <link rel="stylesheet" href="styles.css?v=42">
+  <script src="portfolio.js?v=42" defer></script>
 </head>
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>
@@ -19,12 +19,19 @@
       <nav aria-label="Portfolio index"><a href="#about">About</a><a href="career-highlights.html">Capabilities</a><a href="#skills">Toolkit</a><a href="#contact">Contact</a></nav>
       <div class="appearance-controls">
         <div class="palette-picker" role="group" aria-label="Color palette" hidden>
-          <button type="button" data-palette="earth" aria-label="Brown and beige" title="Brown and beige" aria-pressed="false"></button>
+          <button type="button" data-palette="earth" aria-label="Deep burgundy" title="Deep burgundy" aria-pressed="false"></button>
           <button type="button" data-palette="sage" aria-label="Pastel green" title="Pastel green" aria-pressed="false"></button>
           <button type="button" data-palette="navy" aria-label="Navy and pink" title="Navy and pink" aria-pressed="false"></button>
           <button type="button" data-palette="cocoa" aria-label="Cocoa and sky blue" title="Cocoa and sky blue" aria-pressed="false"></button>
           <button type="button" data-palette="poppy" aria-label="Sage and brown" title="Sage and brown" aria-pressed="false"></button>
-          <input class="custom-color" type="color" value="#1f0000" aria-label="Try a custom color" title="Try a custom color">
+          <details class="custom-picker">
+            <summary title="Try a custom color" aria-label="Try a custom color"></summary>
+            <div class="custom-picker-panel">
+              <div class="color-plane" tabindex="0" role="group" aria-label="Color area. Use arrow keys to adjust saturation and brightness"><span aria-hidden="true"></span></div>
+              <label>Hue <input class="color-hue" type="range" min="0" max="359" value="0"></label>
+              <label>HEX <input class="custom-color" type="text" value="#1F0000" maxlength="7" spellcheck="false" autocomplete="off"></label>
+            </div>
+          </details>
         </div>
         <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden><span class="theme-switch" aria-hidden="true"></span></button>
       </div>

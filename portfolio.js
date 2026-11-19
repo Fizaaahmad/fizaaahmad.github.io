@@ -18,8 +18,14 @@ if (filters) {
     let visibleCount = 0;
     for (const project of projects) {
       const categories = project.dataset.category.split(' ');
+      const wasHidden = project.hidden;
       project.hidden = filter !== 'all' && !categories.includes(filter);
-      if (!project.hidden) visibleCount += 1;
+      if (!project.hidden) {
+        visibleCount += 1;
+        if (wasHidden) project.classList.add('filter-enter');
+      } else {
+        project.classList.remove('filter-enter');
+      }
     }
 
     status.textContent = `${visibleCount} projects shown.`;
