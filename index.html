@@ -7,9 +7,10 @@
   <meta name="theme-color" content="#f7f3e9">
   <title>Fiza Ahmad | Full-Stack Engineer &amp; Digital Marketer</title>
   <link rel="icon" href="fa.svg" type="image/svg+xml">
-  <script src="theme.js?v=42"></script>
+  <script src="theme.js?v=44"></script>
   <link rel="stylesheet" href="styles.css?v=43">
-  <script src="portfolio.js?v=42" defer></script>
+  <link rel="stylesheet" href="flow.css?v=48">
+  <script src="portfolio.js?v=45" defer></script>
 </head>
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>
@@ -19,6 +20,7 @@
       <nav aria-label="Portfolio index"><a href="#about">About</a><a href="career-highlights.html">Capabilities</a><a href="#skills">Toolkit</a><a href="#contact">Contact</a></nav>
       <div class="appearance-controls">
         <div class="palette-picker" role="group" aria-label="Color palette" hidden>
+          <button type="button" data-palette="flow" aria-label="Two sides, one flow" title="Two sides, one flow" aria-pressed="true"></button>
           <button type="button" data-palette="earth" aria-label="Deep burgundy" title="Deep burgundy" aria-pressed="false"></button>
           <button type="button" data-palette="sage" aria-label="Pastel green" title="Pastel green" aria-pressed="false"></button>
           <button type="button" data-palette="navy" aria-label="Navy and pink" title="Navy and pink" aria-pressed="false"></button>
@@ -39,18 +41,26 @@
   </header>
   <main id="main">
     <section class="hero" aria-labelledby="intro">
-      <h1 id="intro">Fiza Ahmad</h1>
-      <div class="hero-stage">
+      <div class="wrap hero-stage">
         <div class="hero-copy">
-          <p class="hero-hook">I build software.<br>I grow audiences.</p>
-          <a class="button button-primary" href="#contact">Contact me</a>
+          <h1 id="intro">Fiza Ahmad</h1>
+          <div class="hero-details">
+            <p class="hero-hook"><span>I build <em>software</em>.</span> <span>I grow <em>audiences</em>.</span></p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contact">Contact me</a>
+            </div>
+          </div>
         </div>
-        <figure class="portrait">
-          <img src="fiza-ahmad-extended-768.webp"
-            srcset="fiza-ahmad-extended-420.webp 420w, fiza-ahmad-extended-768.webp 768w, fiza-ahmad-extended-1200.webp 1200w"
-            sizes="(max-width: 760px) 55vw, (max-width: 1368px) 57vw, 780px"
-            width="1200" height="1000" alt="Portrait of Fiza Ahmad" fetchpriority="high">
-        </figure>
+        <div class="hero-visual">
+          <figure class="portrait">
+            <div class="hero-portrait-image">
+              <img src="fiza-ahmad-extended-768.webp"
+                srcset="fiza-ahmad-extended-420.webp 420w, fiza-ahmad-extended-768.webp 768w, fiza-ahmad-extended-1200.webp 1200w"
+                sizes="(max-width: 760px) 76vw, (max-width: 1280px) 43vw, 550px"
+                width="1200" height="1000" alt="Portrait of Fiza Ahmad" fetchpriority="high">
+            </div>
+          </figure>
+        </div>
       </div>
     </section>
     <section class="about-section" id="about" aria-labelledby="about-title">
@@ -62,8 +72,8 @@
           <a class="text-link" href="career-highlights.html">See what I bring to a team</a>
         </div>
         <div class="about-disciplines">
-          <article data-reveal><h3>Engineering</h3><p>I work across interfaces, APIs, and databases, with projects in data analytics, automation, and applied AI.</p></article>
-          <article data-reveal><h3>Marketing</h3><p>I designed Hepta’s visual identity and grew Her Relic through organic social content. It reached 2M+ views in the last 30 days.</p></article>
+          <article data-reveal><span class="discipline-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 7-5 5 5 5m6-10 5 5-5 5"/></svg></span><h3>Engineering</h3><p>I work across interfaces, APIs, and databases, with projects in data analytics, automation, and applied AI.</p></article>
+          <article data-reveal><span class="discipline-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 3 7-8m-5 0h5v5"/></svg></span><h3>Marketing</h3><p>I designed Hepta’s visual identity and grew Her Relic through organic social content. It reached 2M+ views in the last 30 days.</p></article>
         </div>
       </div>
     </section>
@@ -79,14 +89,14 @@
       </div>
       <p id="filter-status" class="sr-only" role="status"></p>
       <div class="projects">
-        <article class="project project-feature" data-reveal data-category="technical">
-          <div><p class="eyebrow">Data science</p><h3>Customer Churn Prediction</h3><p>Compared logistic regression and random forest models to identify customers at risk of leaving.</p></div>
-          <dl class="project-stats"><div><dt>7,043</dt><dd>customer records</dd></div><div><dt>26.54%</dt><dd>churn rate</dd></div><div><dt>77.08%</dt><dd>random forest validation accuracy</dd></div></dl>
-        </article>
-        <article class="project" data-reveal data-category="technical"><p class="eyebrow">Applied AI</p><h3>Document Intelligence</h3><p>Answers questions about documents with references to the source passages.</p></article>
-        <article class="project" data-reveal data-category="technical"><p class="eyebrow">Analytics automation</p><h3>AI Data Analyst Copilot</h3><p>Turns business questions into validated SQL and chart-ready results.</p></article>
-        <article class="project creative-project" data-reveal data-category="creative"><p class="eyebrow">Brand design</p><h3>Hepta visual identity</h3><p>Designed the adopted logo, visual theme, and business templates.</p></article>
-        <article class="project creative-project" data-reveal data-category="creative"><p class="eyebrow">Content strategy</p><h3>Her Relic</h3><p>A travel and lifestyle account built through short-form video and organic social media.</p><a class="text-link" href="#her-relic">See the case study</a></article>
+        <article class="project project-feature" data-reveal data-category="technical"><span class="project-number" aria-hidden="true">01</span>
+          <div class="project-summary"><p class="eyebrow">Data science</p><h3>Customer Churn Prediction</h3><p>Compared logistic regression and random forest models to identify customers at risk of leaving.</p></div>
+          <dl class="project-stats" aria-label="Customer Churn Prediction metrics"><div><dt data-count="7043">7,043</dt><dd>customer records</dd></div><div><dt data-count="26.54">26.54%</dt><dd>churn rate</dd></div><div><dt data-count="77.08">77.08%</dt><dd>random forest validation accuracy</dd></div></dl>
+        <span class="project-arrow" aria-hidden="true">↗</span></article>
+        <article class="project" data-reveal data-category="technical"><span class="project-number" aria-hidden="true">02</span><div class="project-summary"><p class="eyebrow">Applied AI</p><h3>Document Intelligence</h3><p>Answers questions about documents with references to the source passages.</p></div><span class="project-arrow" aria-hidden="true">↗</span></article>
+        <article class="project" data-reveal data-category="technical"><span class="project-number" aria-hidden="true">03</span><div class="project-summary"><p class="eyebrow">Analytics automation</p><h3>AI Data Analyst Copilot</h3><p>Turns business questions into validated SQL and chart-ready results.</p></div><span class="project-arrow" aria-hidden="true">↗</span></article>
+        <article class="project creative-project" data-reveal data-category="creative"><span class="project-number" aria-hidden="true">04</span><div class="project-summary"><p class="eyebrow">Brand design</p><h3>Hepta visual identity</h3><p>Designed the adopted logo, visual theme, and business templates.</p></div><span class="project-arrow" aria-hidden="true">↗</span></article>
+        <article class="project creative-project" data-reveal data-category="creative"><span class="project-number" aria-hidden="true">05</span><div class="project-summary"><p class="eyebrow">Content strategy</p><h3>Her Relic</h3><p>A travel and lifestyle account built through short-form video and organic social media.</p><a class="text-link" href="#her-relic">See the case study</a></div><span class="project-arrow" aria-hidden="true">↗</span></article>
       </div>
     </section>
 
@@ -97,11 +107,11 @@
           <a href="https://www.instagram.com/her.relic/" class="button button-secondary" target="_blank" rel="noopener noreferrer">Follow on Instagram</a>
         </div>
         <dl class="brand-stats" data-reveal>
-          <div><dt>2M+</dt><dd>views in the last 30 days</dd></div>
-          <div><dt>832K+</dt><dd>views on the top reel</dd></div>
+          <div><dt data-count="2">2M+</dt><dd>views in the last 30 days</dd></div>
+          <div><dt data-count="832">832K+</dt><dd>views on the top reel</dd></div>
         </dl>
-        <div class="reels-head"><h3 id="reels-title">Top-performing reels</h3><button class="button button-secondary reels-toggle" type="button" aria-expanded="false" aria-controls="reel-metrics-1 reel-metrics-2 reel-metrics-3 reel-metrics-4 reel-metrics-5 reel-metrics-6" hidden>Insights</button></div>
-        <div class="reels" role="region" aria-labelledby="reels-title">
+        <div class="reels-head" data-reveal><h3 id="reels-title">Top-performing reels</h3><div class="reels-controls"><button class="button button-secondary reels-toggle" type="button" aria-expanded="false" aria-controls="reel-metrics-1 reel-metrics-2 reel-metrics-3 reel-metrics-4 reel-metrics-5 reel-metrics-6" hidden>Insights</button><button class="button carousel-arrow" type="button" data-step="-1" aria-label="Previous reel" aria-controls="reels-track" hidden>←</button><button class="button carousel-arrow" type="button" data-step="1" aria-label="Next reel" aria-controls="reels-track" hidden>→</button></div></div>
+        <div class="reels" id="reels-track" role="region" aria-roledescription="carousel" aria-labelledby="reels-title" tabindex="0">
           <article class="reel">
             <a class="reel-cover" href="https://www.instagram.com/reel/DfUJY_1sYJB/" target="_blank" rel="noopener noreferrer" aria-label="Watch Take Blame and Walk Away on Instagram"><img src="reel-walk-away.webp" alt="" width="456" height="810" loading="lazy"><span class="reel-play"><span class="play-icon"></span></span></a>
             <div class="reel-meta"><h4>Take Blame and Walk Away</h4><p class="reel-result"><strong>832,448</strong> views</p>
@@ -209,7 +219,7 @@
 
     <section class="wrap section" id="skills" aria-labelledby="skills-title">
       <div class="section-head" data-reveal><h2 id="skills-title">My toolkit<span>.</span></h2></div>
-      <div class="tool-flow-viewport toolkit-viewport" role="region" aria-label="Toolkit skills" tabindex="0">
+      <div class="tool-flow-viewport toolkit-viewport" data-reveal role="region" aria-label="Toolkit skills, row 1" tabindex="0">
         <div class="tool-flow-track">
           <ul class="toolkit-skills">
             <li><img src="dotnet.svg" alt="" width="26" height="26" loading="lazy">C# / .NET</li>
@@ -218,6 +228,12 @@
             <li><img src="python.svg" alt="" width="26" height="26" loading="lazy">Python</li>
             <li><img src="postgresql.svg" alt="" width="26" height="26" loading="lazy">SQL / PostgreSQL</li>
             <li><img src="fastapi.svg" alt="" width="26" height="26" loading="lazy">FastAPI</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tool-flow-viewport toolkit-viewport" data-reveal role="region" aria-label="Toolkit skills, row 2" tabindex="0">
+        <div class="tool-flow-track">
+          <ul class="toolkit-skills">
             <li><img src="docker.svg" alt="" width="26" height="26" loading="lazy">Docker</li>
             <li><img src="git.svg" alt="" width="26" height="26" loading="lazy">Git</li>
             <li><img src="scikitlearn.svg" alt="" width="26" height="26" loading="lazy">scikit-learn</li>
@@ -227,27 +243,31 @@
           </ul>
         </div>
       </div>
-      <p class="more-skills">C# / .NET · Angular · TypeScript · SQL · Git · Python · Selenium WebDriver · Pandas · Excel · FastAPI · Canva · Adobe Illustrator · CapCut · Instagram Insights · Upwork · SQL / PostgreSQL · Docker · scikit-learn · LangChain · OpenAI API · SQL Server · LangGraph · RAG</p>
+      <p class="more-skills sr-only">C# / .NET · Angular · TypeScript · SQL · Git · Python · Selenium WebDriver · Pandas · Excel · FastAPI · Canva · Adobe Illustrator · CapCut · Instagram Insights · Upwork · SQL / PostgreSQL · Docker · scikit-learn · LangChain · OpenAI API · SQL Server · LangGraph · RAG</p>
     </section>
 
     <section class="recommendations section" id="recommendations" aria-labelledby="recommendations-title">
       <div class="wrap">
         <div class="section-head" data-reveal><h2 id="recommendations-title">Recommendations<span>.</span></h2><a class="text-link" href="https://www.linkedin.com/in/fiza-ahmad/details/recommendations/?detailScreenTabIndex=0" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a></div>
-        <div class="quote-grid" data-reveal>
+        <div class="quote-grid" data-reveal role="region" aria-roledescription="carousel" aria-labelledby="recommendations-title">
           <figure><blockquote>“Fiza has a positive and adaptable approach to her work.”</blockquote><figcaption><span class="initials" aria-hidden="true">TG</span><div><strong>Tessa Danielle Greenslade</strong><span>Former manager</span></div></figcaption></figure>
           <figure><blockquote>“She has contributed to the club within and beyond her domain.”</blockquote><figcaption><span class="initials" aria-hidden="true">MN</span><div><strong>Maaz Ali Nadeem</strong><span>Google Developer Student Clubs, FAST Islamabad</span></div></figcaption></figure>
           <figure><blockquote>“From the start, she demonstrated strong SQL and debugging skills.”</blockquote><figcaption><span class="initials" aria-hidden="true">HT</span><div><strong>Hassan Tariq</strong><span>CEO, Hepta Software Solutions</span></div></figcaption></figure>
           <figure><blockquote>“She is someone who delivers on her commitments and consistently takes ownership of her work.”</blockquote><figcaption><span class="initials" aria-hidden="true">MK</span><div><strong>Maryam Kamal</strong><span>Former teammate</span></div></figcaption></figure>
         </div>
+        <div class="quote-controls" aria-label="Recommendation controls" hidden>
+          <button class="button quote-pause" type="button">Pause</button>
+          <div class="quote-dots" role="group" aria-label="Choose a recommendation"></div>
+        </div>
       </div>
     </section>
 
     <section class="wrap section contact" id="contact" aria-labelledby="contact-title">
-      <div class="contact-intro">
+      <div class="contact-intro" data-reveal>
         <h2 id="contact-title">Let’s connect<span>.</span></h2>
         <p>Tell me what you’re working on.</p>
       </div>
-      <div class="contact-channels">
+      <div class="contact-channels" data-reveal>
         <a class="contact-link" href="mailto:f1zaahmad449@gmail.com">
           <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span>
           <span>Email me</span>
@@ -267,6 +287,6 @@
       </div>
     </section>
   </main>
-  <footer><div class="wrap footer"><a class="wordmark" href="#top"><span class="monogram" aria-hidden="true"></span> Fiza Ahmad</a><div><a href="https://github.com/Fizaaahmad/">GitHub</a><a href="https://www.instagram.com/her.relic/">Instagram</a></div></div></footer>
+  <footer><div class="wrap footer"><a class="wordmark" href="#top"><span class="monogram" aria-hidden="true"></span> Fiza Ahmad</a><div><a href="https://github.com/Fizaaahmad/">GitHub</a><a href="https://www.instagram.com/her.relic/">Instagram</a></div><a class="back-top" href="#top" aria-label="Back to top">↑</a></div></footer>
 </body>
 </html>

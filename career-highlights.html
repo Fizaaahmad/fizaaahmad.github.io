@@ -7,9 +7,10 @@
   <meta name="theme-color" content="#f7f3e9">
   <title>Capabilities | Fiza Ahmad</title>
   <link rel="icon" href="fa.svg" type="image/svg+xml">
-  <script src="theme.js?v=42"></script>
+  <script src="theme.js?v=44"></script>
   <link rel="stylesheet" href="styles.css?v=43">
-  <script src="portfolio.js?v=42" defer></script>
+  <link rel="stylesheet" href="flow.css">
+  <script src="portfolio.js?v=44" defer></script>
 </head>
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>
@@ -19,6 +20,7 @@
       <nav aria-label="Portfolio index"><a href="./#about">About</a><a href="career-highlights.html" aria-current="page">Capabilities</a><a href="./#skills">Toolkit</a><a href="./#contact">Contact</a></nav>
       <div class="appearance-controls">
         <div class="palette-picker" role="group" aria-label="Color palette" hidden>
+          <button type="button" data-palette="flow" aria-label="Two sides, one flow" title="Two sides, one flow" aria-pressed="true"></button>
           <button type="button" data-palette="earth" aria-label="Deep burgundy" title="Deep burgundy" aria-pressed="false"></button>
           <button type="button" data-palette="sage" aria-label="Pastel green" title="Pastel green" aria-pressed="false"></button>
           <button type="button" data-palette="navy" aria-label="Navy and pink" title="Navy and pink" aria-pressed="false"></button>
@@ -49,16 +51,16 @@
     </div>
 
     <section class="wrap capability-intro" aria-labelledby="capabilities-title">
-      <div class="capability-intro-copy">
+      <div class="capability-intro-copy" data-reveal>
         <h1 id="capabilities-title">What I bring<br>to the table<span>.</span></h1>
         <p>I build web products, make data useful, and help brands grow.</p>
       </div>
-      <figure class="capability-portrait">
+      <figure class="capability-portrait" data-reveal>
         <img src="fiza-at-the-table.webp" width="1050" height="700" alt="Illustration of Fiza Ahmad at a desk, gesturing toward the heading" fetchpriority="high">
       </figure>
     </section>
 
-    <nav class="wrap capability-category-index" aria-label="Capability categories">
+    <nav class="wrap capability-category-index" data-reveal aria-label="Capability categories">
       <a href="#engineering">Full-stack engineering</a>
       <a href="#data">Data &amp; automation</a>
       <a href="#marketing">Marketing &amp; business development</a>
@@ -127,11 +129,11 @@
       </div>
     </section>
 
-    <div class="wrap capability-actions">
+    <div class="wrap capability-actions" data-reveal>
       <a class="button button-primary" href="./#work">Explore selected work</a>
       <a class="button button-secondary" href="./#contact">Get in touch</a>
     </div>
   </main>
-  <footer><div class="wrap footer"><a class="wordmark" href="./"><span class="monogram" aria-hidden="true"></span> Fiza Ahmad</a><a href="./">Portfolio home</a></div></footer>
+  <footer><div class="wrap footer"><a class="wordmark" href="./"><span class="monogram" aria-hidden="true"></span> Fiza Ahmad</a><a href="./">Portfolio home</a><a class="back-top" href="#top" aria-label="Back to top">↑</a></div></footer>
 </body>
 </html>

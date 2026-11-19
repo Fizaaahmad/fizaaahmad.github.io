@@ -2,7 +2,7 @@ const page = document.documentElement;
 const preferredTheme = matchMedia('(prefers-color-scheme: dark)');
 const themeKey = 'fiza-portfolio-theme';
 const paletteKey = 'fiza-portfolio-palette';
-const palettes = ['earth', 'sage', 'navy', 'cocoa', 'poppy'];
+const palettes = ['flow', 'earth', 'sage', 'navy', 'cocoa', 'poppy'];
 let chosenTheme;
 const customKey = 'fiza-portfolio-custom-color';
 const defaultColor = '#1f0000';
@@ -37,7 +37,7 @@ function restorePalette() {
   try { preset = localStorage.getItem(paletteKey); } catch {}
   if (custom && /^#[0-9a-f]{6}$/i.test(custom)) applyPalette(custom);
   else if (palettes.includes(preset)) applyPalette(null, preset);
-  else applyPalette(defaultColor);
+  else applyPalette(null, 'flow');
 }
 
 restorePalette();
