@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
+  <defs>
+    <filter id="soft-edge" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+  <g fill="white" filter="url(#soft-edge)">
+    <!-- Shirt panels trace around the vest, neckline, and loose hair. -->
+    <path d="M0 478 145 335 181 324 201 325
+      C199 341 195 357 192 375 C189 394 189 415 184 439
+      C181 463 177 482 174 503 H0Z"/>
+    <path d="M500 345 C521 346 537 338 546 334 C556 328 566 328 576 335
+      L595 344 605 373 605 503 523 503
+      C513 486 504 469 503 453 C500 423 501 391 498 367Z"/>
+    <path d="M310 383 C317 385 334 385 339 390 C339 419 342 440 348 462
+      L354 503 268 503 C278 482 284 468 291 451 C296 439 304 445 309 451
+      C309 441 305 433 302 426 C300 410 303 395 310 383Z"/>
+  </g>
+</svg>
