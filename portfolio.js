@@ -125,10 +125,8 @@ const quotes = document.querySelector('.quote-grid');
 if (quotes) {
   const figures = [...quotes.querySelectorAll('figure')];
   const controls = document.querySelector('.quote-controls');
-  const pause = controls.querySelector('.quote-pause');
   const dots = controls.querySelector('.quote-dots');
   let active = 0;
-  let paused = motionPreference.matches;
   let timer;
 
   const buttons = figures.map((figure, index) => {
@@ -136,7 +134,6 @@ if (quotes) {
     dot.type = 'button';
     dot.setAttribute('aria-label', figure.querySelector('strong').textContent);
     dot.addEventListener('click', () => {
-      paused = true;
       showQuote(index);
       schedule();
     });
@@ -155,8 +152,7 @@ if (quotes) {
 
   function schedule() {
     clearInterval(timer);
-    pause.textContent = paused ? 'Play' : 'Pause';
-    if (!paused && !document.hidden && !motionPreference.matches) {
+    if (!document.hidden && !motionPreference.matches && figures.length > 1) {
       timer = setInterval(() => showQuote((active + 1) % figures.length), 6000);
     }
   }
@@ -165,19 +161,8 @@ if (quotes) {
   controls.hidden = false;
   showQuote(0);
   schedule();
-  pause.addEventListener('click', () => {
-    paused = !paused;
-    schedule();
-  });
   document.addEventListener('visibilitychange', schedule);
-  motionPreference.addEventListener('change', () => {
-    paused = motionPreference.matches;
-    schedule();
-  });
-  quotes.addEventListener('pointerenter', event => {
-    if (event.pointerType === 'mouse') clearInterval(timer);
-  });
-  quotes.addEventListener('pointerleave', schedule);
+  motionPreference.addEventListener('change', schedule);
 }
 
 const pageHeader = document.querySelector('.navigation-bar');
