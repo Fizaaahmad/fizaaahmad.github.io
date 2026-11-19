@@ -4,13 +4,12 @@ const themeKey = 'fiza-portfolio-theme';
 const paletteKey = 'fiza-portfolio-palette';
 const palettes = ['earth', 'sage', 'navy', 'cocoa', 'poppy'];
 let chosenTheme;
-let chosenPalette = 'navy';
+const customKey = 'fiza-portfolio-custom-color';
+const defaultColor = '#1f0000';
 
 try {
   const savedTheme = localStorage.getItem(themeKey);
   if (savedTheme === 'dark' || savedTheme === 'light') chosenTheme = savedTheme;
-  const savedPalette = localStorage.getItem(paletteKey);
-  if (palettes.includes(savedPalette)) chosenPalette = savedPalette;
 } catch {
   // Appearance controls still work when storage is unavailable.
 }
@@ -24,7 +23,24 @@ function rememberAppearance(key, value) {
 }
 
 page.dataset.theme = chosenTheme ?? (preferredTheme.matches ? 'dark' : 'light');
-page.dataset.palette = chosenPalette;
+function applyPalette(color, preset) {
+  page.dataset.palette = preset ?? '';
+  page.toggleAttribute('data-custom-color', Boolean(color));
+  if (color) page.style.setProperty('--visitor-color', color);
+  else page.style.removeProperty('--visitor-color');
+}
+
+function restorePalette() {
+  let custom;
+  let preset;
+  try { custom = sessionStorage.getItem(customKey); } catch {}
+  try { preset = localStorage.getItem(paletteKey); } catch {}
+  if (custom && /^#[0-9a-f]{6}$/i.test(custom)) applyPalette(custom);
+  else if (palettes.includes(preset)) applyPalette(null, preset);
+  else applyPalette(defaultColor);
+}
+
+restorePalette();
 
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.theme-toggle');
@@ -36,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (picker) picker.hidden = false;
 
   function updateAppearance() {
+    const color = page.style.getPropertyValue('--visitor-color');
+    customColor.value = color || defaultColor;
     toggle.setAttribute('aria-pressed', String(page.dataset.theme === 'dark'));
     for (const swatch of swatches) {
       swatch.setAttribute('aria-pressed', String(!page.hasAttribute('data-custom-color') && swatch.dataset.palette === page.dataset.palette));
@@ -44,6 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   updateAppearance();
+  window.addEventListener('pageshow', (event) => {
+    if (!event.persisted) return;
+    restorePalette();
+    updateAppearance();
+  });
   toggle.addEventListener('click', () => {
     chosenTheme = page.dataset.theme === 'dark' ? 'light' : 'dark';
     page.dataset.theme = chosenTheme;
@@ -53,17 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for (const swatch of swatches) {
     swatch.addEventListener('click', () => {
-      page.removeAttribute('data-custom-color');
-      page.style.removeProperty('--visitor-color');
-      page.dataset.palette = swatch.dataset.palette;
+      try { sessionStorage.removeItem(customKey); } catch {}
+      applyPalette(null, swatch.dataset.palette);
       updateAppearance();
       rememberAppearance(paletteKey, page.dataset.palette);
     });
   }
 
   customColor.addEventListener('input', () => {
-    page.setAttribute('data-custom-color', '');
-    page.style.setProperty('--visitor-color', customColor.value);
+    const color = customColor.value;
+    try { sessionStorage.setItem(customKey, color); } catch {}
+    applyPalette(color);
     updateAppearance();
   });
 

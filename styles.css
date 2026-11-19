@@ -429,17 +429,18 @@ footer { border-top: 1px solid var(--line); border-bottom: none; }
   appearance: none;
   width: 28px;
   height: 36px;
-  padding: 10px 6px;
+  padding: 8px 4px;
   border: 0;
-  background: transparent;
+  border-radius: 50%;
+  background: conic-gradient(#ef7898, #f6b66e, #9ec583, #72bdda, #a391df, #ef7898) center / 24px 24px no-repeat;
   cursor: pointer;
 }
 .custom-color::-webkit-color-swatch-wrapper { padding: 0; }
-.custom-color::-webkit-color-swatch { border: 1px solid var(--frame); border-radius: 50%; }
-.custom-color::-moz-color-swatch { border: 1px solid var(--frame); border-radius: 50%; }
+.custom-color::-webkit-color-swatch { border: 2px solid var(--panel); border-radius: 50%; }
+.custom-color::-moz-color-swatch { border: 2px solid var(--panel); border-radius: 50%; }
 :root[data-custom-color] {
   --bg: color-mix(in srgb, var(--visitor-color) 8%, #fffaf4);
-  --heading: color-mix(in srgb, var(--visitor-color) 38%, #201724);
+  --heading: color-mix(in srgb, var(--visitor-color) 52%, #1f0000);
   --accent: var(--heading);
   --ui-accent: var(--visitor-color);
   --ui-ink: #fffaf4;
@@ -453,6 +454,7 @@ footer { border-top: 1px solid var(--line); border-bottom: none; }
 :root[data-custom-color][data-theme="dark"] {
   --bg: color-mix(in srgb, var(--visitor-color) 12%, #18171d);
   --heading: color-mix(in srgb, var(--visitor-color) 36%, #fffaf4);
+  --ui-accent: color-mix(in srgb, var(--visitor-color) 55%, #fffaf4);
   --panel: color-mix(in srgb, var(--bg) 92%, white);
   --ui-ink: var(--bg);
 }
